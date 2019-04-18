@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Audio;
 public class Menu : MonoBehaviour
 {
     public GameObject mainMenuHolder;
-	public GameObject optionsMenuHolder;
+	public GameObject optionsMenuHolder;    
+    public AudioMixer audioMixer;
 
-    public Slider[] volumeSliders;
     
-     
+    public Dropdown resolutionDropdown;
 
+    Resolution[] resolutions; 
+    public void SetVolume(float volume) {
+        audioMixer.SetFloat("volume", volume);
+    }
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -33,9 +37,7 @@ public class Menu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
     }
-    public Dropdown resolutionDropdown;
-
-    Resolution[] resolutions;
+    
 
     void Start()
     {
@@ -67,7 +69,5 @@ public class Menu : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetVolume(float value) {
     
-	}
 }

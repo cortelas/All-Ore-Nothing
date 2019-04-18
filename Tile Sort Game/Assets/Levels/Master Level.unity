@@ -586,8 +586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 38.14, y: -34.610016}
-  m_SizeDelta: {x: 76.29, y: 69.22}
+  m_AnchoredPosition: {x: 44.1, y: -38.8}
+  m_SizeDelta: {x: 46.59, y: 45.25}
   m_Pivot: {x: 0.49999994, y: 0.5000002}
 --- !u!114 &785220215
 MonoBehaviour:
@@ -662,7 +662,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a5acbe1d75ca1469b91fe0816bf00212, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72b905b6a91bf4d1581b990e458d4fb7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 1209808471}
   m_Layer: 0
   m_Name: GoalLeft
-  m_TagString: Untagged
+  m_TagString: leftGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,6 +780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxChoice: 0
+  leftTag: 
+  rightTag: 
 --- !u!61 &1209808472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1070,7 +1072,7 @@ GameObject:
   - component: {fileID: 1375284190}
   m_Layer: 0
   m_Name: GoalRight
-  m_TagString: Untagged
+  m_TagString: rightGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,6 +1130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxChoice: 0
+  leftTag: 
+  rightTag: 
 --- !u!1 &1404879830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1236,7 @@ GameObject:
   - component: {fileID: 1578697634}
   m_Layer: 0
   m_Name: DestroyerBottom
-  m_TagString: Untagged
+  m_TagString: lossGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
