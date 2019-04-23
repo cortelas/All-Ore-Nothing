@@ -7,6 +7,9 @@ public class Goal : MonoBehaviour
     public int boxChoice = 0;
     public string leftTag;
     public string rightTag;
+
+    //Dont forget to update GEMCOUNT when adding new gems.
+    public const int GEMCOUNT = 6;
     
     // Destroys objects that collide with it
     void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +24,10 @@ public class Goal : MonoBehaviour
         ScoreScript.scoreValue += 100;
         Destroy(collision.gameObject);
         */
+
+
+
+        //Makes adding future gems to the system much easier.
         string GemType = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;
         switch (GemType)
         {
@@ -53,28 +60,25 @@ public class Goal : MonoBehaviour
             switch(GemChoice)
             {
                 case 0:
-                    ScoreScript.scoreValue +=200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 1:
-                    ScoreScript.scoreValue += 200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 2:
-                    ScoreScript.scoreValue += 200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 3:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 case 4:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 case 5:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 default:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
             }
         }
@@ -83,35 +87,28 @@ public class Goal : MonoBehaviour
             switch (GemChoice)
             {
                 case 5:
-                    ScoreScript.scoreValue += 200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 4:
-                    ScoreScript.scoreValue += 200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 3:
-                    ScoreScript.scoreValue += 200;
-                    Debug.Log("200 Points!");
+                    ScoreScript.AddScore(200);
                     break;
                 case 2:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 case 1:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 case 0:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
                 default:
-                    Debug.Log("Lost a Life... But Not Really");
+                    ScoreScript.SubtractScore(200);
                     break;
             }
 
-        }
-        else
-        {
-            Debug.Log("Lost a Life... But Not Really");
         }
         Destroy(collision.gameObject);
     }
@@ -125,9 +122,11 @@ public class Goal : MonoBehaviour
         //ToDo: Swap The Gem icons once they are implemented
     }
     
-    public void GemSideSwap()
+    public void GemSideSwap(int gem1, int gem2)
     {
         //WIP
+        //if(gem1 < GEMCOUNT && gem2 < GEMCOUNT)
+
     }
     // Start is called before the first frame update
     void Start()

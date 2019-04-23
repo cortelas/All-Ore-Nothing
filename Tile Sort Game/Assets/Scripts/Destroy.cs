@@ -9,7 +9,19 @@ public class Destroy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Destroyed collided with " + collision.gameObject);
+        //destroys collided object
         Destroy(collision.gameObject);
+
+        // if lives are more than 0 then subtract one
+        if(LivesScript.livesValue >= 0)
+        {
+            Debug.Log("Lost a life from Destroy Class");
+            LivesScript.SubtractLife();
+        }
+        else
+        {
+            //creates game over state
+        }
 
         /*if (this.tag == "goalLeft")
         { //Unsure as how to handle swapping these values later

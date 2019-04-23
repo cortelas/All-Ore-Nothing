@@ -11,6 +11,8 @@ public class Controls : MonoBehaviour
     public float spawnCountdown;
     public float minSpawnTime;
     public float maxSpawnTime;
+    //public GameObject[] gems; //sets array of gem objects
+    //int randomGem;
 
 	//Variables for manipulating spawn-rate (Option 1)
 	public const float SPAWNTIMECUTOFF = 0.25f;
@@ -24,6 +26,8 @@ public class Controls : MonoBehaviour
     {
         boxLocation = new Vector3(Random.Range(-halfWidth, halfWidth), halfHeight * 2, 0);
         Instantiate(box, boxLocation, Quaternion.identity);
+        //randomGem = Random.Range(0, gems.Length); //animation for gems
+        //Instantiate(gems[randomGem], boxLocation, Quaternion.identity);
     }
 
     // Use this for initialization
@@ -44,11 +48,7 @@ public class Controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Spawns box on click
-        //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    SpawnBox();
-        //}
+
 
         // Spawns on timer
         spawnCountdown -= Time.deltaTime;

@@ -24,6 +24,7 @@ public class Move : MonoBehaviour {
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
+        Debug.Log("Velocity: " + rb.velocity + "    clickStart: " + clickStart + "  Input.mousePosition: " + Input.mousePosition);
     }
 
 
@@ -74,7 +75,7 @@ public class Move : MonoBehaviour {
             //If we've pressed down on the mouse (or touched on the iphone)
             if (Input.GetButton("Fire1"))
             {
-                Debug.Log("moving");
+                //Debug.Log("moving");
                 //Set the position to the mouse position
                 this.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
                     Camera.main.ScreenToWorldPoint(Input.mousePosition).y,
