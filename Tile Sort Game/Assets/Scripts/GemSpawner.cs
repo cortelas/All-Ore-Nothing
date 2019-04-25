@@ -4,7 +4,33 @@ using UnityEngine;
 
 public class GemSpawner : MonoBehaviour
 {
-    float maxSpawnRateInSeconds = 5f;
+    private const float GRAVITY = 2.0f;
+    public bool IsActive { set; get; }
+
+    private float verticalVelocity;
+    private float speed;
+
+    public void LaunchGem(float verticalVelocity,float xSpeed,float xStart)
+    {
+        IsActive = true;
+        speed = xSpeed;
+        this.verticalVelocity = verticalVelocity;
+        transform.position = new Vector3(xStart, 0, 0);
+    }
+    private void Update()
+    {
+        if (!IsActive)
+            return;
+        verticalVelocity -= GRAVITY * Time.deltaTime;
+        transform.position += new Vector3(speed, verticalVelocity, 0) * Time.deltaTime;
+
+        if (transform.position.y < -1)
+        {
+            IsActive = false;
+        }
+
+    }
+    /*float maxSpawnRateInSeconds = 5f;
     public GameObject GemGO;
     // Start is called before the first frame update
     void Start()
@@ -49,5 +75,5 @@ public class GemSpawner : MonoBehaviour
             maxSpawnRateInSeconds--;
         if (maxSpawnRateInSeconds == 1f)
             CancelInvoke("IncreaseSpawnRate");
-    }
+    }*/
 }

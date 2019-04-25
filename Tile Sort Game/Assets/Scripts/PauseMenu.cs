@@ -7,7 +7,10 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject Pausemenu, PauseButton;
     //private bool isPaused;
-
+    public void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void Pause()
     {
         Pausemenu.SetActive(true);
@@ -23,6 +26,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void MainMenu(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Resume();
+        //Time.timeScale = 1;
     }
     public void Update()
     {

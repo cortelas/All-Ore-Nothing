@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3274497234160307549}
   - component: {fileID: 7126106323952400409}
   - component: {fileID: 706143674910365687}
-  - component: {fileID: 1573452801238827831}
+  - component: {fileID: -3487121235421618590}
   m_Layer: 9
   m_Name: Blue Square Gem Plain
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7857580167434071428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.18, y: -0.06, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -129,7 +129,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &1573452801238827831
+--- !u!114 &-3487121235421618590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,3 +145,4 @@ MonoBehaviour:
   numColor: 0
   clickStart: {x: 0, y: 0, z: 0}
   rb: {fileID: 7126106323952400409}
+  StartTime: 0

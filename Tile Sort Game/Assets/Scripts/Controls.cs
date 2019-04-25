@@ -11,20 +11,21 @@ public class Controls : MonoBehaviour
     public float spawnCountdown;
     public float minSpawnTime;
     public float maxSpawnTime;
+    public float spawnWidth;
     //public GameObject[] gems; //sets array of gem objects
     //int randomGem;
 
 	//Variables for manipulating spawn-rate (Option 1)
 	public const float SPAWNTIMECUTOFF = 0.25f;
 	public int NumBoxesUntilIncrease;
-	public const float SPAWNTIMEDECREMENT = 0.25f;
+	public const float SPAWNTIMEDECREMENT = 0.15f;
 	//Option 2 Variables
 	public float TimeSinceIncrease;
 
 	// Spawns box
 	void SpawnBox()
     {
-        boxLocation = new Vector3(Random.Range(-halfWidth, halfWidth), halfHeight * 2, 0);
+        boxLocation = new Vector3(Random.Range(-spawnWidth, spawnWidth), halfHeight * 2, 0);
         Instantiate(box, boxLocation, Quaternion.identity);
         //randomGem = Random.Range(0, gems.Length); //animation for gems
         //Instantiate(gems[randomGem], boxLocation, Quaternion.identity);
@@ -33,14 +34,15 @@ public class Controls : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		TimeSinceIncrease = 0;
+
+        TimeSinceIncrease = 0;
 		NumBoxesUntilIncrease = 50; //Rather Low, for testing purposes
         minSpawnTime = 1;
-        maxSpawnTime = 2;
+        maxSpawnTime = 3;
         halfHeight = Camera.main.orthographicSize;
         halfWidth = Camera.main.aspect * halfHeight;
         spawnCountdown = Random.Range(minSpawnTime, maxSpawnTime);
-
+        spawnWidth = halfWidth * 4/5;
     }
 
 
@@ -69,7 +71,7 @@ public class Controls : MonoBehaviour
             Debug.Log("Spawn Rate Increase");
 		}*/
 		//Option 2: Every X seconds increase the rate at which boxes spawn.
-		if (TimeSinceIncrease >= 25) //Good for Linear rate increase
+		if (TimeSinceIncrease >= 15) //Good for Linear rate increase
 		{
 			if (minSpawnTime > SPAWNTIMECUTOFF)
 			{

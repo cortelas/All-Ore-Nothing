@@ -13,7 +13,7 @@ public class Destroy : MonoBehaviour
         Destroy(collision.gameObject);
 
         // if lives are more than 0 then subtract one
-        if(LivesScript.livesValue >= 0)
+        /*if(LivesScript.livesValue >= 0)
         {
             Debug.Log("Lost a life from Destroy Class");
             LivesScript.SubtractLife();
@@ -21,15 +21,8 @@ public class Destroy : MonoBehaviour
         else
         {
             //creates game over state
-        }
-
-        /*if (this.tag == "goalLeft")
-        { //Unsure as how to handle swapping these values later
-            if(collision.GetComponent<SpriteRenderer>().sprite == Resources.Load<Sprite>("Purple Heart Gem Plain"))
-            { // If its a purple gem... There has to be a more effective way to do this
-                Debug.Log("Purple Gem Sent to Left Goal");
-            }
         }*/
+
     }
 
     // Start is called before the first frame update
