@@ -146,3 +146,4 @@ MonoBehaviour:
   clickStart: {x: 0, y: 0, z: 0}
   rb: {fileID: 7126106323952400409}
   StartTime: 0
+  TimeSinceMouseover: 0

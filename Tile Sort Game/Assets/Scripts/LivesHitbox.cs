@@ -8,6 +8,7 @@ public class LivesHitbox : MonoBehaviour
 
     private const float y =(float)-10.55;
     public GameObject minusOneLife;
+    public GameObject minusOneLogo;
     Rigidbody2D rb;
    
     public void Start()
@@ -17,7 +18,11 @@ public class LivesHitbox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         LivesScript.health -= 1;
+        SoundManager.PlaySound("loseLife");
         Instantiate(minusOneLife, new Vector3(x, 
+            y), Quaternion.identity);
+        Destroy(collision.gameObject);
+        Instantiate(minusOneLogo, new Vector3(x,
             y), Quaternion.identity);
         Destroy(collision.gameObject);
     }

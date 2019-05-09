@@ -10,6 +10,8 @@ public class Gem_Control : MonoBehaviour {
     public Rigidbody2D rb;
     public float StartTime;
     public float TimeSinceMouseover;
+    public static int CurGemCount = 1;
+    private const int MAXGEM = 6;
 
     //throws gem
     private void ThrowGem()
@@ -26,33 +28,39 @@ public class Gem_Control : MonoBehaviour {
 
     private void OnMouseUp()
     {
-      //  ThrowGem();
+        ThrowGem();
+    }
+
+    private void OnMouseDown()
+    {
+        clickStart = Input.mousePosition;
     }
 
 
     // Use this for initialization
     void Start () {
-
+        if (CurGemCount > MAXGEM)
+            CurGemCount = MAXGEM;
         rb = GetComponent<Rigidbody2D>();
         TimeSinceMouseover = 0f;
         maxSpeed = 40f;
-        numColor = Random.Range(0, 6);
+        numColor = Random.Range(0, CurGemCount);
         // Assigns a color to the box
         switch (numColor)
         {
-            case 5:
+            case 1:
                 this.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Purple Heart Gem Plain");
                 break;
-            case 4:
+            case 3:
                 this.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Orange Oval Gem Plain");
                 break;
-            case 3:
+            case 5:
                 this.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Red Circle Gem Plain");
                 break;
-            case 2:
+            case 4:
                 this.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("LightBlue Heart Gem Plain");
                 break;
-            case 1:
+            case 2:
                 this.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Green Teardrop Gem Plain");
                 break;
             case 0:
@@ -85,18 +93,18 @@ public class Gem_Control : MonoBehaviour {
                     Camera.main.ScreenToWorldPoint(Input.mousePosition).y,
                     0.0f);
 
-                TimeSinceMouseover = Time.time;
+                //TimeSinceMouseover = Time.time;
             }
         }
 
 
-        //sets click down position
-        if(Input.GetMouseButtonDown(0))
-            clickStart = Input.mousePosition;
+        ////sets click down position
+        //if (Input.GetMouseButtonDown(0))
+        //    clickStart = Input.mousePosition;
 
 
-        if (Input.GetMouseButtonUp(0) && (Time.time - TimeSinceMouseover) < 1)
-            ThrowGem();
+        //if (Input.GetMouseButtonUp(0) && (Time.time - TimeSinceMouseover) < 1)
+        //    ThrowGem();
 
     }
 }

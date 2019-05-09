@@ -8,11 +8,9 @@ public class LivesScript : MonoBehaviour
 {
     public GameObject heart1, heart2, heart3;
     public static int health;
-    //private Animator animator = null;
 
     void Start()
     {
-        //animator = GetComponent<Animator>();
         health = 3;
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
@@ -30,26 +28,22 @@ public class LivesScript : MonoBehaviour
                 heart1.gameObject.SetActive(true);
                 heart2.gameObject.SetActive(true);
                 heart3.gameObject.SetActive(true);
-                //animator.Play("RedBorder");
                 break;
             case 2:
                 heart1.gameObject.SetActive(true);
                 heart2.gameObject.SetActive(true);
                 heart3.gameObject.SetActive(false);
-                //animator.Play("RedBorder");
                 break;
             case 1:
                 heart1.gameObject.SetActive(true);
                 heart2.gameObject.SetActive(false);
                 heart3.gameObject.SetActive(false);
-                //animator.Play("RedBorder");
 
                 break;
             case 0:
                 heart1.gameObject.SetActive(false);
                 heart2.gameObject.SetActive(false);
                 heart3.gameObject.SetActive(false);
-                //animator.Play("RedBorder");
 				GameOver();
                 break;
         }

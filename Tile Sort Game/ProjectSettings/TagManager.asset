@@ -58,3 +58,9 @@ TagManager:
   - name: GameObjectLayer
     uniqueID: 3741446617
     locked: 0
+  - name: Header
+    uniqueID: 3176227605
+    locked: 0
+  - name: Panel
+    uniqueID: 604150733
+    locked: 0

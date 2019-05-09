@@ -7,24 +7,29 @@ using UnityEngine.Audio;
 public class Menu : MonoBehaviour
 {
     public GameObject mainMenuHolder;
-	public GameObject optionsMenuHolder;    
+	public GameObject optionsMenuHolder;
+    public GameObject rulesMenuHolder;   
     public AudioMixer audioMixer;
-
-    
     public Dropdown resolutionDropdown;
-
     Resolution[] resolutions; 
-    public void SetVolume(float volume) {
+
+    public void SetVolume(float volume) 
+    {
         audioMixer.SetFloat("volume", volume);
     }
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void Quit() {
+    public void Quit() 
+    {
 		Application.Quit ();
 	}
-
+    public void Rules()
+    {
+        mainMenuHolder.SetActive(false);
+        rulesMenuHolder.SetActive(true);
+    }
 	public void OptionsMenu() {
 		mainMenuHolder.SetActive (false);
 		optionsMenuHolder.SetActive (true);
@@ -33,7 +38,9 @@ public class Menu : MonoBehaviour
 	public void MainMenu() {
 		mainMenuHolder.SetActive (true);
 		optionsMenuHolder.SetActive (false);
+        rulesMenuHolder.SetActive(false);
 	}
+    
     public void SetFullscreen(bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
     }
@@ -63,7 +70,8 @@ public class Menu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetResolution (int resolutionIndex) {
+    public void SetResolution (int resolutionIndex) 
+    {
         // Current resolution
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);

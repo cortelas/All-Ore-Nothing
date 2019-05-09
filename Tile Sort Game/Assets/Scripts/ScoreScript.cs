@@ -31,7 +31,7 @@ public class ScoreScript : MonoBehaviour
 
     public static void UpdateScore()
     {
-        score.text = "Score: " + scoreValue;
+        score.text = "Score  " + scoreValue;
     }
 
     // Update is called once per frame
